@@ -18,6 +18,8 @@ Preferred installation method is to use the Arduino IDE Library Manager. To down
 
 You will also have to install the **Adafruit GFX library** which provides graphics primitves such as lines, circles, text, etc. This also can be found in the Arduino Library Manager, or you can get the source from https://github.com/adafruit/Adafruit-GFX-Library
 
+Modified by John Greenwell to adapt driver for a custom HAL layer, 2024.
+
 ## Changes
 Pull Request:
    (November 2021) 
