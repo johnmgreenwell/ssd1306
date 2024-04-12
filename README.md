@@ -20,7 +20,19 @@ You will also have to install the **Adafruit GFX library** which provides graphi
 
 Modified by John Greenwell to adapt driver for a custom HAL layer, 2024.
 
+## Usage
+
+For this modified version, the following hardware abstraction layer (HAL) requirements must be satisfied:
+
+* A header file `hal.h` providing access to HAL classes and methods.
+* An `I2C` class within the `HAL` namespace with the following methods:
+  - Write n bytes to the device: `write(uint8_t device_address, uint8_t * data_buffer, uint32_t length_in_bytes)`.
+
 ## Changes
+Modified version:
+   (April 2024)
+   * Adapted to run on top of custom HAL layer.
+
 Pull Request:
    (November 2021) 
    * Added define `SSD1306_NO_SPLASH` to opt-out of including splash images in `PROGMEM` and drawing to display during `begin`.

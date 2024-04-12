@@ -22,6 +22,7 @@
  * 
  * Modified by John Greenwell to adapt driver for custom HAL layer, 2024.
  *
+ * Dependencies: Adafruit_GFX.h (https://github.com/adafruit/Adafruit-GFX-Library)
  */
 
 #ifndef _Adafruit_SSD1306_H_
@@ -130,7 +131,6 @@ protected:
     int8_t i2caddr;  ///< I2C address initialized when begin method is called.
     int8_t vccstate; ///< VCC selection, set by begin method.
     int8_t page_end; ///< not used
-    int8_t rstPin; ///< Display reset pin assignment. Set during construction.
     uint8_t contrast; ///< normal contrast setting for this device
 
 };

@@ -92,9 +92,11 @@ static uint8_t i2c_buffer[I2C_BUFFER_SIZE];
             allocation is performed there!
 */
 SSD1306::SSD1306(HAL::I2C& i2c, uint8_t w, uint8_t h, int8_t rst_pin)
-: Adafruit_GFX(w, h), _i2c(i2c), buffer(NULL), rstPin(rst_pin)
+: Adafruit_GFX(w, h)
+, _i2c(i2c)
+, buffer(NULL)
 {
-
+    (void) rst_pin; // Included for potential backwards compatibility
 }
 
 /*!
@@ -239,17 +241,6 @@ bool SSD1306::begin(uint8_t vcs, uint8_t addr, bool reset,
     // If I2C address is unspecified, use default
     // (0x3C for 32-pixel-tall displays, 0x3D for all others).
     i2caddr = addr ? addr : ((HEIGHT == 32) ? 0x3C : 0x3D);
-
-    // Reset SSD1306 if requested and reset pin specified in constructor
-    // TODO: place these delays and GPIO action onto the HAL
-    if (reset && (rstPin >= 0)) {
-        pinMode(rstPin, OUTPUT);
-        digitalWrite(rstPin, HIGH);
-        delay(1);                   // VDD goes high at start, pause for 1 ms
-        digitalWrite(rstPin, LOW);  // Bring reset low
-        delay(10);                  // Wait 10 ms
-        digitalWrite(rstPin, HIGH); // Bring out of reset
-    }
 
     // Init sequence
     static const uint8_t PROGMEM init1[] = {SSD1306_DISPLAYOFF,         // 0xAE
