@@ -1,0 +1,22 @@
+{
+    "name": "ssd1306",
+    "version": "1.0.0",
+    "description": "Portable, multi-instance driver for SSD1306 monochrome 128x64 and 128x32 OLED displays",
+    "keywords": "embedded, driver, hal, oled, display, ssd1306",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/johnmgreenwell/ssd1306"
+    },
+    "license": "BSD",
+    "frameworks": "*",
+    "platforms": "*",
+    "dependencies": {
+        "Adafruit BusIO": "https://github.com/adafruit/Adafruit_BusIO/tree/15fbda592d1b237b0a92cfb91841adb01a34efd9",
+        "Adafruit GFX Library": "https://github.com/adafruit/Adafruit-GFX-Library/tree/126007f2c52d3238b7a1133ec14192c3d1deb8a9"
+    },
+    "build": {
+        "flags": [
+        "-I../../include"
+        ]
+    }
+}
